@@ -1,0 +1,6 @@
+temp/
+PSPacker
+run.ps1
+Backup_Vault*.json
+dist/
+justfile

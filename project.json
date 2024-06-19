@@ -1,0 +1,26 @@
+{
+  "ProjectName": "SecretBackup",
+  "Author": "Manjunath Beli",
+  "Description": "Backup and restore Secret Store",
+  "Version": "0.0.1",
+  "GUID": "17c66027-ce87-405f-9b56-e13d16175dbc",
+  "CodeSign": false,
+  "PowerShellHostVersion": "7.4",
+  "Pester": {
+    "TestResult": false,
+    "Output": {
+      "Verbosity": "Detailed"
+    }
+  },
+  "PSScriptAnalyzer": {
+    "Severity": [
+      "Error",
+      "Warning"
+    ],
+    "IncludeDefaultRules": true,
+    "ExcludeRules": [
+      "PSAvoidUsingWriteHost",
+      "PSAvoidUsingConvertToSecureStringWithPlainText"
+    ]
+  }
+}
