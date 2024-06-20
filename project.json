@@ -1,11 +1,23 @@
 {
   "ProjectName": "SecretBackup",
-  "Author": "Manjunath Beli",
   "Description": "Backup and restore Secret Store",
-  "Version": "0.0.1",
-  "GUID": "17c66027-ce87-405f-9b56-e13d16175dbc",
+  "Version": "0.0.2",
   "CodeSign": false,
-  "PowerShellHostVersion": "7.4",
+  "Manifest": {
+    "Author": "Manjunath Beli",
+    "PowerShellHostVersion": "7.4",
+    "GUID": "17c66027-ce87-405f-9b56-e13d16175dbc",
+    "Tags": [
+      "SecretManagement",
+      "SecretStore",
+      "SecretVault",
+      "Vault",
+      "KeyVault",
+      "Secrets"
+    ],
+    "ProjecUri": "https://github.com/belibug/SecretBackup",
+    "LicenseUri": "https://github.com/belibug/SecretBackup/blob/main/LICENSE"
+  },
   "Pester": {
     "TestResult": false,
     "Output": {
