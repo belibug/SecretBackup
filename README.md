@@ -50,7 +50,7 @@ Import-Secret -VaultName "MyOtherVault" -BackupFile 'C:\Backups\Backup_Vault.jso
 ## ToDo
 
 - [ ] Support BYTE and Hastable type secrets
-- [ ] Support metadata
+- [ ] Encrypted output using passphrase
 
 ## Contributing
 
