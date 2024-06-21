@@ -1,7 +1,7 @@
 {
   "ProjectName": "SecretBackup",
   "Description": "Offers essential functionality for backing up (exporting as JSON) and restoring any PowerShell SecretStore. Useful for backing up Vault and migration form one Vault to another. Check [Project Site](https://github.com/belibug/SecretBackup) for More info",
-  "Version": "0.0.3",
+  "Version": "1.0.0",
   "CodeSign": false,
   "Manifest": {
     "Author": "Manjunath Beli",
