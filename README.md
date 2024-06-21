@@ -6,12 +6,13 @@ This PowerShell module offers essential functionality for backing up (exporting 
 - Migrate secrets from one store backend to different one. (e.g., KeePass to AzureVault Migration).
 
 > [!IMPORTANT]
-> Currently it supports secret saved as string, securestring and PSCredential only
+> Currently it supports secret saved as string, securestring and PSCredential only, does not support secret of type Byte and Hastable
 
 ## Features
 
 - Export PowerShell Secret Store as plain JSON
 - Restore PowerShell Secret Store from JSON
+- Retain any metadata content in secret
 
 ## Installation
 
