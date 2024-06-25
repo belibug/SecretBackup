@@ -1,6 +1,5 @@
 BeforeAll {
-    Import-Module -Name .\PSPacker
-    $data = Import-ProjectData
+    $data = Get-MTProjectInfo
 }
 
 Describe 'General Module Control' {

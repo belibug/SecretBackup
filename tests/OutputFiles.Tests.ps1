@@ -1,6 +1,5 @@
 BeforeAll {
-    Import-Module -Name .\PSPacker
-    $data = Import-ProjectData
+    $data = Get-MTProjectInfo
     $files = Get-ChildItem $data.OutputModuleDir
 }
 
@@ -19,8 +18,7 @@ Describe 'Module and Manifest testing' {
             $status = (Get-AuthenticodeSignature -FilePath $_).Status
             if ($status -eq 'NotSigned') {
                 Set-TestInconclusive -Message 'Not yet signed'
-            }
-            else {
+            } else {
                 $status | Should -Be 'Valid'
             }
         }

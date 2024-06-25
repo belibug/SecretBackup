@@ -19,7 +19,10 @@
     "LicenseUri": "https://github.com/belibug/SecretBackup/blob/main/LICENSE"
   },
   "Pester": {
-    "TestResult": false,
+    "TestResult": {
+      "Enabled": true,
+      "OutputFormat": "NUnitXml"
+    },
     "Output": {
       "Verbosity": "Detailed"
     }

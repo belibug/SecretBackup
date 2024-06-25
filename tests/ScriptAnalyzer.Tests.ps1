@@ -2,8 +2,11 @@ BeforeDiscovery {
     $files = Get-ChildItem -Path .\src -Filter '*.ps1' -Recurse
 }
 BeforeAll {
-    Import-Module -Name .\PSPacker -Force
-    $data = Import-ProjectData
+    $ScriptAnalyzerSettings = @{
+        IncludeDefaultRules = $true
+        Severity            = @('Warning', 'Error')
+        ExcludeRules        = @('PSAvoidUsingWriteHost', 'PSAvoidUsingConvertToSecureStringWithPlainText')
+    }
 }
 Describe 'File: <_.basename>' -ForEach $files {
     Context 'Code Quality Check' {
@@ -14,7 +17,7 @@ Describe 'File: <_.basename>' -ForEach $files {
             $errors.Count | Should -Be 0
         }
         It 'passess ScriptAnalyzer' {
-            $saResults = Invoke-ScriptAnalyzer -Path $_ -Settings $data.PSScriptAnalyzer
+            $saResults = Invoke-ScriptAnalyzer -Path $_ -Settings $ScriptAnalyzerSettings
             $saResults | Should -BeNullOrEmpty -Because $($saResults.Message -join ';')
         }         
     }
