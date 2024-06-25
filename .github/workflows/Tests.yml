@@ -21,7 +21,7 @@ jobs:
           Install-PSResource -Repository PSGallery -Name ModuleTools -TrustRepository
         shell: pwsh
 
-      - name: Install ModuleTools module form PSGallery
+      - name: Build Module and Perfor Tests
         run: |
           Invoke-MTBuild -Verbose
           Invoke-MTTest
