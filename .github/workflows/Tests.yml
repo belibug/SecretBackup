@@ -23,5 +23,6 @@ jobs:
 
       - name: Install ModuleTools module form PSGallery
         run: |
+          Invoke-MTBuild -Verbose
           Invoke-MTTest
         shell: pwsh
