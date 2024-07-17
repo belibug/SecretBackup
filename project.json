@@ -15,7 +15,7 @@
       "KeyVault",
       "Secrets"
     ],
-    "ProjecUri": "https://github.com/belibug/SecretBackup",
+    "ProjectUri": "https://github.com/belibug/SecretBackup",
     "LicenseUri": "https://github.com/belibug/SecretBackup/blob/main/LICENSE"
   },
   "Pester": {
