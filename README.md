@@ -27,6 +27,8 @@ Install-Module -Name SecretBackup
 
 ## Usage
 
+Cmdlets are documented here - [\docs\SecretBackup](./docs/SecretBackup/SecretBackup.md)
+
 ### Backup Secret Store
 
 To backup the PowerShell Secret Store, use the `Backup-SecretStore` cmdlet:

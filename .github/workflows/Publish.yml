@@ -1,0 +1,51 @@
+name: Publish Module
+
+on:
+  push:
+    tags:
+      - "*"
+
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 📦 Install required modules from PSGallery
+        run: |
+          Install-PSResource -Repository PSGallery -Name ModuleTools -TrustRepository
+          Install-PSResource -Repository PSGallery -Name Microsoft.PowerShell.PlatyPS -TrustRepository
+          Install-PSResource -Repository PSGallery -Name MarkdownPS -TrustRepository
+
+      - name: 🏗️ Build Module
+        run: Invoke-MTBuild -Verbose
+
+      - name: 🧪 Run Pester Tests
+        run: Invoke-MTTest
+
+      - name: 📝 Generate Report
+        continue-on-error: true
+        run: |
+          # Get list of files in the dist directory directory
+          $Report = New-MDHeader -Text "Output Files 📁" -Level 2
+          $Report += Get-ChildItem -Path ./dist -Recurse | Select-Object Name, Directory | New-MDTable 
+          echo "$Report" >> $env:GITHUB_STEP_SUMMARY
+          echo "$Report"
+
+      - name: 🚀 Publish Package to PSGallery
+        run: |
+          try {
+            Publish-PSResource -Path ./dist/SecretBackup -Repository PSGallery -ApiKey $Env:ApiKey -Verbose
+          } catch {
+            Write-Error "Publishing to PSGallery failed: $($_.Exception.Message)"
+            exit 1 # Fail the workflow on error
+          }
+        env:
+          ApiKey: ${{ secrets.PSGALLERY_API }}

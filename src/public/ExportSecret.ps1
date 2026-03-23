@@ -1,27 +1,3 @@
-<#
-.SYNOPSIS
-Exports secrets from a specified vault to a JSON file.
-
-.DESCRIPTION
-This function exports secrets from a specified vault to a JSON file. It retrieves secret information from the vault and converts it to a JSON format for export.
-
-.PARAMETER VaultName
-Specifies the name of the vault from which to export secrets. This parameter is mandatory.
-
-.PARAMETER OutPath
-Specifies the output path where the JSON file will be saved. If not provided, the current location will be used as the default output path.
-
-.EXAMPLE
-Export-Secret -VaultName 'MyVault' -OutPath 'C:\Backups'
-Exports secrets from the 'MyVault' vault and saves the JSON file to the 'C:\Backups' directory.
-
-.EXAMPLE
-Export-Secret -VaultName 'MyVault'
-Exports secrets from the 'MyVault' vault and saves the JSON file to the current location.
-
-.NOTES
-Exports secretes in plain text. Make sure you protect the exported data.
-#>
 function Export-Secret {
     [CmdletBinding()]
     param (
